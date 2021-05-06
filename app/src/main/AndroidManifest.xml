@@ -9,8 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.App_Inventario_Ferreteria">
-        <activity android:name=".MainInventario"></activity>
-        <activity android:name=".MainActivity"
+        <activity android:name=".MainDetalleProducto"></activity>
+        <activity android:name=".MainInventario" />
+        <activity
+            android:name=".MainActivity"
             android:theme="@style/Theme.Design.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
