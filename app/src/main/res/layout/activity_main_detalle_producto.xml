@@ -7,10 +7,11 @@
     tools:context=".MainDetalleProducto">
 
     <ImageView
-        android:id="@+id/PrecioCompra"
+        android:id="@+id/ImagenContainer2"
         android:layout_width="0dp"
         android:layout_height="135dp"
         android:background="@drawable/container_bg"
+        android:transitionName="ContainerTM"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -19,6 +20,7 @@
         app:layout_constraintVertical_bias="0.117" />
 
     <ImageView
+        android:transitionName="ProductoImagenTM"
         android:id="@+id/ImagenProducto"
         android:layout_width="100dp"
         android:layout_height="150dp"
@@ -32,6 +34,7 @@
         app:srcCompat="@drawable/logo" />
 
     <TextView
+        android:transitionName="NombreTM"
         android:id="@+id/NombreProducto"
         android:layout_width="118dp"
         android:layout_height="22dp"
@@ -40,9 +43,10 @@
         android:text="Desarmador10CM"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/ImagenProducto"
-        app:layout_constraintTop_toTopOf="@+id/PrecioCompra" />
+        app:layout_constraintTop_toTopOf="@+id/ImagenContainer2" />
 
     <TextView
+        android:transitionName="codigoTM"
         android:id="@+id/CodigoProducto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -56,13 +60,17 @@
         android:id="@+id/Existencia"
         android:layout_width="16dp"
         android:layout_height="15dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginEnd="28dp"
         android:text="0"
         android:textStyle="bold"
+        android:transitionName="ExistenciaTM"
+        app:layout_constraintBottom_toBottomOf="@+id/ImagenContainer2"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="135dp" />
+        app:layout_constraintTop_toTopOf="@+id/ImagenContainer2"
+        app:layout_constraintVertical_bias="0.316" />
 
     <TextView
+        android:transitionName=""
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -73,6 +81,7 @@
         app:layout_constraintTop_toBottomOf="@+id/CodigoProducto" />
 
     <TextView
+        android:transitionName="precioYTM"
         android:id="@+id/PrecioY"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -93,6 +102,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
     <TextView
+        android:transitionName="UnidadMedidaTM"
         android:id="@+id/UnidadMedida"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -108,7 +118,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@+id/PrecioCompra">
+        app:layout_constraintTop_toBottomOf="@+id/ImagenContainer2">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -272,7 +282,8 @@
         app:layout_constraintTop_toTopOf="@+id/PrecioY" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:transitionName="PrecioCTM"
+        android:id="@+id/Preciocompra"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -289,7 +300,9 @@
         android:text="Exist"
         app:layout_constraintBottom_toTopOf="@+id/Existencia"
         app:layout_constraintEnd_toEndOf="@+id/Existencia"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/Existencia" />
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/Existencia"
+        app:layout_constraintTop_toTopOf="@+id/ImagenContainer2"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -18,10 +18,13 @@ import java.util.List;
 public class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapter.ProductoViewHolder> {
 
 List<Producto>mdata;
+    ProductCallback callback;
 String URL_IMAGE="https://www.online-image-editor.com/styles/2019/images/power_girl.png";
 
-    public ProductoAdapter(List<Producto> mdata) {
+    public ProductoAdapter(List<Producto> mdata,ProductCallback callback) {
+
         this.mdata = mdata;
+        this.callback=callback;
     }
 
 
@@ -56,19 +59,41 @@ String URL_IMAGE="https://www.online-image-editor.com/styles/2019/images/power_g
 
     public class ProductoViewHolder extends RecyclerView.ViewHolder{
 
-        ImageView image;
-        TextView tvnombre,tvcodigo,tvprecioy,tvunidadmedida,tvexistencia;
+        ImageView image,imageContainer;
+        TextView tvnombre,tvcodigo,tvprecioy,tvunidadmedida,tvexistencia,tvpreciocompra;
 
         public ProductoViewHolder(@NonNull View itemView) {
 
             super(itemView);
 
+            imageContainer=itemView.findViewById(R.id.ImagenContainer2);
             image=itemView.findViewById(R.id.ImagenProducto);
             tvnombre=itemView.findViewById(R.id.NombreProducto);
             tvcodigo=itemView.findViewById(R.id.CodigoProducto);
             tvprecioy=itemView.findViewById(R.id.PrecioY);
             tvunidadmedida=itemView.findViewById(R.id.UnidadMedida);
             tvexistencia=itemView.findViewById(R.id.Existencia);
+            tvpreciocompra=itemView.findViewById(R.id.PrecioCompra1);
+
+
+
+
+
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    callback.onProductoItemClick(getAdapterPosition(),
+                            imageContainer,
+                            image,
+                            tvnombre,
+                            tvcodigo,
+                            tvprecioy,
+                            tvunidadmedida,
+                            tvexistencia,
+                            tvpreciocompra);
+                }
+            });
         }
     }
 }

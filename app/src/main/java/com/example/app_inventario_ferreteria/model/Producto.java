@@ -1,6 +1,8 @@
 package com.example.app_inventario_ferreteria.model;
 
-public class Producto {
+import java.io.Serializable;
+
+public class Producto implements Serializable {
  private String nombreP;
  private int CodigoP;
  private double PrecioY;
