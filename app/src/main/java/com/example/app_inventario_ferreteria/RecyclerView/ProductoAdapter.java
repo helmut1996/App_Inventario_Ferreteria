@@ -13,6 +13,7 @@ import com.example.app_inventario_ferreteria.R;
 import com.example.app_inventario_ferreteria.model.Producto;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapter.ProductoViewHolder> {
@@ -40,11 +41,12 @@ String URL_IMAGE="https://www.online-image-editor.com/styles/2019/images/power_g
     @Override
     public void onBindViewHolder(@NonNull ProductoViewHolder holder, int position) {
         final Producto item= mdata.get(position);
-      //  holder.tvnombre.setText(item.getNombreP());
-       //   holder.tvcodigo.setText(item.getCodigoP());
-        //  holder.tvprecioy.setText(String.valueOf(item.getPrecioY()));
-       // holder.tvexistencia.setText(item.getExistenciaP());
-       // holder.tvunidadmedida.setText(item.getUnidadM());
+         holder.tvnombre.setText(item.getNombreP());
+          holder.tvcodigo.setText( String.valueOf(item.getCodigoP()));
+          holder.tvprecioy.setText(String.valueOf(item.getPrecioY()));
+          holder.tvexistencia.setText(String.valueOf(item.getExistenciaP()));
+          holder.tvunidadmedida.setText(item.getUnidadM());
+          holder.tvpreciocompra.setText(String.valueOf(item.getPrecioCompra()));
 
         Picasso.get().load(URL_IMAGE+item.getImg())
                 // .error(R.drawable.error)
@@ -56,6 +58,13 @@ String URL_IMAGE="https://www.online-image-editor.com/styles/2019/images/power_g
     public int getItemCount() {
         return mdata.size();
     }
+
+    public void filterList(ArrayList<Producto> filterList) {
+
+        mdata=filterList;
+        notifyDataSetChanged();
+    }
+
 
     public class ProductoViewHolder extends RecyclerView.ViewHolder{
 
